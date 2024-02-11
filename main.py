@@ -1,6 +1,6 @@
 import time
 from datetime import datetime, timedelta
-from flask_sslify import SSLify
+# from flask_sslify import SSLify
 
 from wsgiref import simple_server
 
@@ -56,13 +56,13 @@ try:
     thread_stop_event = Event()
 
     initial = Initializer()
-    app = Flask(__name__)
-    app.secret_key = initial.get_session_secret_key()
-    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-    CORS(app)
+    # app = Flask(__name__)
+    # app.secret_key = initial.get_session_secret_key()
+    # app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    # CORS(app)
 
-    if 'DYNO' in os.environ:  # only trigger SSLify if the app is running on Heroku
-        sslify = SSLify(app)
+    # if 'DYNO' in os.environ:  # only trigger SSLify if the app is running on Heroku
+    #     sslify = SSLify(app)
 
     scheduler_controller = SchedulerController()
     scheduler_controller.get_scheduler_object().start()
