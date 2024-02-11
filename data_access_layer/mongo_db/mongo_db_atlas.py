@@ -7,8 +7,7 @@ Created on Mon Feb  8 06:06:50 2021
 # importing mongodb file
 import ssl
 import urllib
-import certifi
-ca = certifi.where()
+
 
 import pymongo
 import json
@@ -61,7 +60,7 @@ class MongoDBOperation:
         """
         try:
             client = pymongo.MongoClient(self.get_mongo_db_url(),
-                                         ssl_cert_reqs=ssl.CERT_NONE, ssl=True)  # creating database client object
+                                         ssl_cert_reqs=ssl.CERT_NONE)  # creating database client object
             return client
         except Exception as e:
             mongo_db_exception = MongoDbException(
